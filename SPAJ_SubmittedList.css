@@ -1,0 +1,114 @@
+﻿#NavigationContainer
+{
+  position: absolute;
+  top: 0px;
+  left: -310px;
+  bottom: 0px;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  
+}
+
+nav
+{
+  float: left;
+  margin: 0px;
+  width: 310px;
+  height: 100%;
+  padding: 0px;
+  overflow-y: auto;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+
+ul, li
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+.NavigationHeader
+{
+  
+}
+
+.NavigationHeader li
+{
+  width: 100%;
+  height: 72px;
+  display: block;
+  background: black;
+}
+
+.NavigationItem
+{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: purple;
+  vertical-align: middle;
+  display: none;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+
+.NavigationItem li
+{
+  width: 305px;
+  height: 100%;
+  display: block;
+  background-color: gray;
+}
+
+input[type=checkbox]:checked + .NavigationItem
+{
+  width: auto;
+  display: inline-block;
+}
+
+input[type=checkbox]
+{
+  display: none;
+}
+
+#CheckboxNavigationTrigger:checked + #NavigationContainer
+{
+  left: 0px;
+  right:2px;
+}
+
+#LabelNavigationTrigger
+{
+  float: left;
+  margin: 20px;
+}
+
+#ContentContainer
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #0096a9;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+.header
+{
+    margin-top:20px;
+    margin-left:45px;
+
+}

@@ -1,0 +1,78 @@
+﻿dl {
+  background-color: white;
+  flex-direction: column;
+  height: 100%;
+  max-height: 700px;
+  position: relative;
+  padding: 20px;
+}
+
+dt {
+  align-self: flex-start;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-left: 130px;
+}
+
+.text {
+  font-weight: 600;
+  align-items: center;
+  height: 40px;
+  width: 130px;
+  background-color: white;
+  bottom: 0;
+  text-align: center;
+  left: 65px;
+  margin-left: -32.5px;
+  justify-content: flex-end;
+}
+
+.percentage {
+  font-size: .8em;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  width: 50px;
+  height: 100%;
+  margin-bottom: 130px;
+  display: inline-block;
+  
+  &:after {
+    content: "";
+    display: block;
+    background-color: #3d9970;
+    width: 50px;
+    margin-bottom: 10px;
+    height: 90%;
+    position: absolute;
+    bottom: 0px;
+    transition: background-color .3s ease;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+  &:hover,
+  &:focus {
+    &:after {
+       background-color: #aaa; 
+    }
+  }
+}
+
+@for $i from 1 through 100 {
+  .percentage-#{$i} {
+    &:after {
+      $value: ($i * 1%);
+      height: $value;
+    }
+  }
+}
+
+html, body {
+  height: 500px;
+  font-family: "fira-sans-2",sans-serif;
+  color: #333;
+}

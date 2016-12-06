@@ -1,0 +1,203 @@
+﻿#NavigationContainer
+{
+  float: left;
+  top: 0px;
+  margin-left: -310px;
+  bottom: 0px;
+  transition: all 0.25s;
+  margin-left: -310px;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  position:absolute;
+}
+
+nav
+{
+  float: left;
+  margin: 0px;
+  width: 310px;
+  height: 100%;
+  padding: 0px;
+  overflow-y: auto;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+
+ul, li
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+.NavigationHeader
+{
+  
+}
+.text
+{
+  text-align: right;
+}
+
+.NavigationHeader li
+{
+  width: 66%;
+  height: 72px;
+  display: block;
+  background: black;
+  color:White;
+}
+
+.NavigationItem
+{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: purple;
+  vertical-align: middle;
+  display: none;
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+.buttonimage
+{
+  margin-top: auto;
+  margin-left: 728px;
+  width: 120px;
+  height: 60px;
+  color:Red;
+}
+
+
+/* BUTTON */
+
+.ButtonImageContainer
+{
+    position: relative;
+    margin-top:200px;
+    text-align: center;
+    margin-left:420px;
+}
+
+#ContentContainer
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size:cover;
+  background-image: url('photo_spaj_secondary.png');
+  transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+}
+.left
+{
+    position:absolute;
+}
+.footer
+{
+    background-image: url('shape_arcfullscreen_primaryblue.png');
+    background-size:70%;
+    margin-left:80%;
+    margin-top:300px;
+    width:auto;
+    height:225px;
+    background-repeat:no-repeat; 
+}
+.ButtonImageLeft, .ButtonImageRight
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 36px;
+    min-width: 120px;
+    color: White;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color:#0096a9;
+    border: none;
+    border-radius: 6px;
+}
+
+.ButtonImageLeft
+{
+    padding-left: 40px;
+    padding-right: 51px;
+    text-align: right;
+    background-image: url('../../Styles/shape_guideleft_complete.png');
+    background-position:right;
+    width: 150px;
+}
+
+.ButtonImageRight
+{
+    padding-left: 40px;
+    padding-right: 5px;
+    text-align: left;
+    background-image: url("../../Styles/shape_guideright_complete.png");
+    background-position: left;
+}
+.logo
+{
+   background-image: url(logo_tmlihat_primary.png); 
+    margin-left:83%;
+    width:158px;
+    height:151px;
+    background-repeat:no-repeat;
+    border-radius:12px;
+    margin-top: 0px;
+}
+.NavigationItem li
+{
+  width: 305px;
+  height: 100%;
+  display: block;
+  background-color: gray;
+}
+
+input[type=checkbox]:checked + .NavigationItem
+{
+  width: auto;
+  display: inline-block;
+}
+
+input[type=checkbox]
+{
+  display: none;
+}
+
+#CheckboxNavigationTrigger:checked + #NavigationContainer 
+{
+  margin-left: 0px;
+}
+
+#LabelNavigationTrigger
+{
+  float: left;
+  margin: 20px;
+}
+.Content
+{
+ float: left;
+ height:auto;
+ width:auto;
+ margin-left:0px;
+ background-repeat: no-repeat;
+ background-size:cover;
+}
+
+body
+{
+    overflow-x: hideen;
+    white-space: nowrap;
+}
