@@ -70,9 +70,13 @@
                       </div>
 					  <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="Curiculum">Curiculum</label>
+                              <label class="col-md-2 control-lable" for="upload">Curiculum</label>
                               <div class="col-md-7">
-                                  <input type="file" ng-model="ctrl.user.upload" id="upload" class="form-control input-sm" placeholder="Upload your file."/>
+                                  <!-- <input type="file" fileread="ctrl.user.upload" id="upload" class="form-control input-sm" placeholder="Upload your file."/>
+								  <input type="text" ng-model="ctrl.user.upload"/> -->
+								  
+								  <input type="file" data-file="ctrl.user.upload" id="upload" class="form-control input-sm" placeholder="Upload your file."  onclick="getFileValue(this.id)"/>
+								  <div>ctrl.user.upload: {{ctrl.user.upload}}</div>   
                               </div>
                           </div>
                       </div>
@@ -107,34 +111,70 @@
                               <td><span ng-bind="u.username"></span></td>
                               <td><span ng-bind="u.surname"></span></td>
                               <td><span ng-bind="u.position"></span></td>
-							  <td><span ng-bind="u.Curiculum"></span></td>
+							  <td>
+								<a ng-href="{{u.uploadFull}}">
+									<span ng-bind="u.upload"></span>
+								</a>
+							  </td>
                               <td>
-                              <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+								<button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>
+								<button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+							  </td>
                           </tr>
                       </tbody>
-                  </table>`
+                  </table>
+				  
+				  
               </div>
           </div>
       </div>
        
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js">
-</script>  
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+	  <script src="https://code.jquery.com/jquery-1.11.3.js"/></script>
       <script>
+			function getFileValue(stringFileJavaScriptID)
+			{
+				/* var elementFile = document.getElementById(stringFileJavaScriptID);
+				var stringFileValue = elementFile.value; */
+				
+				var stringFileJQueryID = "#" + stringFileJavaScriptID;
+				var stringFileValue = $(stringFileJQueryID).val();
+				
+				alert(stringFileValue);
+			}
 	  
-          angular.module('myApp', [])
-          .controller('AppController', ['$scope', function($scope) {
+          var angularModule = angular.module('myApp', []);
+		  
+		  angularModule.directive('file', function(){
+    return {
+        scope: {
+            file: '='
+        },
+        link: function(scope, el, attrs){
+            el.bind('change', function(event){
+                var files = event.target.files;
+                var file = files[0];
+                scope.file = file ? file.name : undefined;
+                scope.$apply();
+            });
+        }
+    };
+});
+		  
+          angularModule.controller('AppController', ['$scope', function($scope) {
               var self = this;
-              self.user={id:null,username:'',surname:'',position:'',Curiculum:''};
+              self.user={id:null,username:'',surname:'',position:'',upload:'',uploadFull:''};
               self.id = 4;
                
               self.users = [// In future posts, we will get it from server using service
-                      {id:1, username: 'Samson', surname: 'Bahri', position: 'Project Lead',Curiculum:'asd'},
-					  {id:2, username: 'Mahmud', surname: 'ismail', position: 'Developer',Curiculum:''},
+                      {id:1, username: 'Samson', surname: 'Bahri', position: 'Project Lead',upload:'',uploadFull:''},
+					  {id:2, username: 'Mahmud', surname: 'ismail', position: 'Developer',upload:'',uploadFull:''},
               ];
                
               self.submit = function() {
                   if(self.user.id === null){
                       self.user.id = self.id++;
+					  self.user.uploadFull = "file:///C:/fakepath/" + self.user.upload;
                       console.log('Saving New User', self.user);    
                       self.users.push(self.user);//Or send to server, we will do it in when handling services
                   }else{
